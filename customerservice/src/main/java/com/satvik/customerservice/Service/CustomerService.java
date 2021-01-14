@@ -25,7 +25,8 @@ public class CustomerService {
     public ResponseTemplateVO getCustomerWithDepartment(int id) {
         ResponseTemplateVO vo = new ResponseTemplateVO();
         Customer c = customerRepository.findByCid(id);
-        Department d = restTemplate.getForObject("http://localhost:3000/departments/" + c.getDid(), Department.class);
+        Department d = restTemplate.getForObject("http://DEPARTMENT-SERVICE/departments/" + c.getDid(),
+                Department.class);
         vo.setCustomer(c);
         vo.setDepartment(d);
         return vo;
