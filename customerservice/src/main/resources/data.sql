@@ -1,0 +1,5 @@
+insert into Customer values (1, 'Satvik Nema', 'satviknema@gmail.com', 1)
+insert into Customer values (2, 'Keshav Malpani', 'keshav23@gmail.com', 3)
+insert into Customer values (15, 'Kartik Mittal', 'kartik542@gmail.com', 2)
+insert into Customer values (4, 'Hussain Malik', 'hussainmalik28@gmail.com', 3)
+insert into Customer values (10, 'Gaurav Sen', 'gauravsen724@gmail.com', 1)
