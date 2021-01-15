@@ -1,0 +1,27 @@
+GET http://www.localhost:3004/customers/5
+
+###
+
+POST http://www.localhost:3004/customers/
+Content-Type: application/json
+
+{
+    "cname": "Ron Weasaly",
+    "cemail": "ergbg@gmail.com",
+    "did": "4"
+}
+
+###
+
+GET http://www.localhost:3004/departments/2
+###
+
+POST http://www.localhost:3004/departments/
+Content-Type: application/json
+
+{
+    "did": "4",
+    "dname": "MECH2",
+    "dcode": "MC-122696969",
+    "daddress": "pakistan 632014"
+}

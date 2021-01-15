@@ -1,0 +1,40 @@
+server:
+    port: 3004
+spring:
+    application:
+        name: API-GATEWAY
+    cloud:
+        gateway:
+            routes:
+                - id: CUSTOMER-SERVICE
+                  uri: lb://CUSTOMER-SERVICE
+                  predicates:
+                      - Path=/customers/**
+                  filters:
+                      - name: CircuitBreaker
+                        args:
+                            name: CUSTOMER-SERVICE
+                            fallbackurl: forward:/customerServiceFallback
+                - id: DEPARTMENT-SERVICE
+                  uri: lb://DEPARTMENT-SERVICE
+                  predicates:
+                      - Path=/departments/**
+                  filters:
+                      - name: CircuitBreaker
+                        args:
+                            name: DEPARTMENT-SERVICE
+                            fallbackurl: forward:/departmentServiceFallback
+
+hystrix:
+    command:
+        fallbackcmd:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 4000
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: hystrix.stream
